@@ -1,37 +1,103 @@
 # MDP REPRESENTATION
-
 ## AIM:
-Write your aim here
+To represent any one real world problem in Markov Decision Problem(MDP).
 
 ## PROBLEM STATEMENT:
-
 ### Problem Description
-Write your answer here
+Move the snake  to reach the apple , which is the goal in a 3*3 grid.
 
 ### State Space
-Write your answer here
+{0,1,2,3,4,5,6,7,8} 
 
 ### Sample State
-Write your answer here
+0
 
 ### Action Space
-Write your answer here
+{Up[0],Down[1],Left[2],Right[3]}
 
 ### Sample Action
-Write your answer here
+Down[1],<br>
+Probability: 0.333 to 3 , 0.333 to 0 , 0.333 to 1
 
 ### Reward Function
-Write your answer here
+R = { +1 , if the snake eats the apple<br>
+       0 , otherwise
 
 ### Graphical Representation
-Write your answer here
+![graphical](https://github.com/saieswar1607/mdp-representation/assets/93427011/ca1a7378-fdf0-47d8-ba97-ccc1324e98c2)
+
 
 ## PYTHON REPRESENTATION:
-Write your code here
+```
+Developed By: SHARAN MJ
+Reg. No: 212222240097
+```
+```python
+# Creating Dictionary
+P={
+    0:{
+        0:[(0.666,0,0.0,False),(0.333,3,0.0,False)],
+        1:[(0.333,3,0.0,False),(0.333,0,0.0,False),(0.333,1,0.0,False)],
+        2:[(0.666,0,0.0,False),(0.333,3,0.0,False)],
+        3:[(0.333,1,0.0,False),(0.333,0,0.0,False),(0.333,3,0.0,False)]
+    },
+    1:{
+        0:[(0.333,1,0.0,False),(0.333,0,0.0,False),(0.333,2,0.0,False)],
+        1:[(0.333,4,0.0,False),(0.333,0,0.0,False),(0.333,2,0.0,False)],
+        2:[(0.333,0,0.0,False),(0.333,1,0.0,False),(0.333,4,0.0,False)],
+        3:[(0.333,2,0.0,False),(0.333,1,0.0,False),(0.333,4,0.0,False)]
+    },
+    2:{
+        0:[(0.666,2,0.0,False),(0.333,1,0.0,False)],
+        1:[(0.333,5,0.0,False),(0.333,1,0.0,False),(0.333,2,0.0,False)],
+        2:[(0.333,1,0.0,False),(0.333,2,0.0,False),(0.333,5,0.0,False)],
+        3:[(0.666,2,0.0,False),(0.333,5,0.0,False)]
+    },
+    3:{
+        0:[(0.333,0,0.0,False),(0.333,3,0.0,False),(0.333,4,0.0,False)],
+        1:[(0.333,6,0.0,False),(0.333,3,0.0,False),(0.333,4,0.0,False)],
+        2:[(0.333,3,0.0,False),(0.333,0,0.0,False),(0.333,6,0.0,False)],
+        3:[(0.333,4,0.0,False),(0.333,0,0.0,False),(0.333,6,0.0,False)]
+    },
+    4:{
+        0:[(0.333,1,0.0,False),(0.333,3,0.0,False),(0.333,5,0.0,False)],
+        1:[(0.333,7,0.0,False),(0.333,3,0.0,False),(0.333,5,0.0,False)],
+        2:[(0.333,3,0.0,False),(0.333,1,0.0,False),(0.333,7,0.0,False)],
+        3:[(0.333,5,0.0,False),(0.333,1,0.0,False),(0.333,7,0.0,False)]
+    },
+    5:{
+        0:[(0.333,2,0.0,False),(0.333,4,0.0,False),(0.333,5,0.0,False)],
+        1:[(0.333,8,1.0,True),(0.333,4,0.0,False),(0.333,5,0.0,False)],
+        2:[(0.333,4,0.0,False),(0.333,1,0.0,False),(0.333,7,0.0,False)],
+        3:[(0.333,5,0.0,False),(0.333,1,0.0,False),(0.333,7,0.0,False)]
+    },
+    6:{
+        0:[(0.333,3,0.0,False),(0.333,6,0.0,False),(0.333,7,0.0,False)],
+        1:[(0.666,6,0.0,False),(0.333,7,0.0,False)],
+        2:[(0.666,6,0.0,False),(0.333,3,0.0,False)],
+        3:[(0.333,7,0.0,False),(0.333,3,0.0,False),(0.333,6,0.0,False)]
+    },
+    7:{
+        0:[(0.333,4,0.0,False),(0.333,6,0.0,False),(0.333,8,1.0,True)],
+        1:[(0.333,7,0.0,False),(0.333,6,0.0,False),(0.333,8,1.0,True)],
+        2:[(0.333,6,0.0,False),(0.333,4,0.0,False),(0.333,7,0.0,False)],
+        3:[(0.333,8,1.0,True),(0.333,4,0.0,False),(0.333,7,0.0,False)]
+    },
+    8:{
+        0:[(0.333,5,0.0,False),(0.333,7,0.0,False),(0.333,8,1.0,True)],
+        1:[(0.666,8,1.0,True),(0.333,7,0.0,False)],
+        2:[(0.333,7,0.0,False),(0.333,5,0.0,False),(0.333,8,1.0,True)],
+        3:[(0.666,8,1.0,True),(0.333,5,0.0,False)]
+    }
+}
+```
 
 ## OUTPUT:
-Write your Python output here
+![output](https://github.com/saieswar1607/mdp-representation/assets/93427011/2f5cebbb-88b9-462f-a161-4f768aadbb7b)
+
 
 ## RESULT:
-Write your output here
+Thus a real world problem is represented as Markov Decision Problem in the following ways successfully:
 
+1. Graphical Representation
+2. Python Representation
