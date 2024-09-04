@@ -1,103 +1,63 @@
 # MDP REPRESENTATION
+
 ## AIM:
-To represent any one real world problem in Markov Decision Problem(MDP).
+The aim of this MDP is to model the decision-making process of a person while coding, considering two levels of concentration - full concentration and half concentration, and to maximize productivity
 
 ## PROBLEM STATEMENT:
+
 ### Problem Description
-Move the snake  to reach the apple , which is the goal in a 3*3 grid.
+
+#### In this scenario ,The team wants to win the football tournament,they has two choice,one is move right and reach the final win the cupand another one is move left ,get knocked from tournament.
 
 ### State Space
-{0,1,2,3,4,5,6,7,8} 
+
+Knocked out ,Semi's ,Final.
 
 ### Sample State
-0
+Semi's.
 
 ### Action Space
-{Up[0],Down[1],Left[2],Right[3]}
+
+Right , Left
 
 ### Sample Action
-Down[1],<br>
-Probability: 0.333 to 3 , 0.333 to 0 , 0.333 to 1
+
+Right(1) and Left(0).
 
 ### Reward Function
-R = { +1 , if the snake eats the apple<br>
-       0 , otherwise
+
+Right= 1,Left= 0
 
 ### Graphical Representation
-![graphical](https://github.com/saieswar1607/mdp-representation/assets/93427011/ca1a7378-fdf0-47d8-ba97-ccc1324e98c2)
+
+![WhatsApp Image 2024-02-23 at 09 41 04_3a10ebf9](https://github.com/Naveen22009215/mdp-representation/assets/119401470/bcf2e24b-b3c6-4108-8f95-ffd7830c5005)
+
 
 
 ## PYTHON REPRESENTATION:
-```
 Developed By: SHARAN MJ
 Reg. No: 212222240097
 ```
-```python
-# Creating Dictionary
-P={
-    0:{
-        0:[(0.666,0,0.0,False),(0.333,3,0.0,False)],
-        1:[(0.333,3,0.0,False),(0.333,0,0.0,False),(0.333,1,0.0,False)],
-        2:[(0.666,0,0.0,False),(0.333,3,0.0,False)],
-        3:[(0.333,1,0.0,False),(0.333,0,0.0,False),(0.333,3,0.0,False)]
+mdp = {
+    "Final": {
+         0 : [(0.7, "Semi's", 0, False),(0.3, "Final", 1, True)],
+        1 : [(0.8, "Final", 1, True),(0.2, "Semi's", 0, False)]
     },
-    1:{
-        0:[(0.333,1,0.0,False),(0.333,0,0.0,False),(0.333,2,0.0,False)],
-        1:[(0.333,4,0.0,False),(0.333,0,0.0,False),(0.333,2,0.0,False)],
-        2:[(0.333,0,0.0,False),(0.333,1,0.0,False),(0.333,4,0.0,False)],
-        3:[(0.333,2,0.0,False),(0.333,1,0.0,False),(0.333,4,0.0,False)]
+    "Semi's": {
+        0 : [(0.8, "Knocked out", 0, False),(0.2, "Semi's", 0, False)],
+        1 : [(0.9, "Final", 1, True),(0.1, "Semi's", 0, False)]
     },
-    2:{
-        0:[(0.666,2,0.0,False),(0.333,1,0.0,False)],
-        1:[(0.333,5,0.0,False),(0.333,1,0.0,False),(0.333,2,0.0,False)],
-        2:[(0.333,1,0.0,False),(0.333,2,0.0,False),(0.333,5,0.0,False)],
-        3:[(0.666,2,0.0,False),(0.333,5,0.0,False)]
-    },
-    3:{
-        0:[(0.333,0,0.0,False),(0.333,3,0.0,False),(0.333,4,0.0,False)],
-        1:[(0.333,6,0.0,False),(0.333,3,0.0,False),(0.333,4,0.0,False)],
-        2:[(0.333,3,0.0,False),(0.333,0,0.0,False),(0.333,6,0.0,False)],
-        3:[(0.333,4,0.0,False),(0.333,0,0.0,False),(0.333,6,0.0,False)]
-    },
-    4:{
-        0:[(0.333,1,0.0,False),(0.333,3,0.0,False),(0.333,5,0.0,False)],
-        1:[(0.333,7,0.0,False),(0.333,3,0.0,False),(0.333,5,0.0,False)],
-        2:[(0.333,3,0.0,False),(0.333,1,0.0,False),(0.333,7,0.0,False)],
-        3:[(0.333,5,0.0,False),(0.333,1,0.0,False),(0.333,7,0.0,False)]
-    },
-    5:{
-        0:[(0.333,2,0.0,False),(0.333,4,0.0,False),(0.333,5,0.0,False)],
-        1:[(0.333,8,1.0,True),(0.333,4,0.0,False),(0.333,5,0.0,False)],
-        2:[(0.333,4,0.0,False),(0.333,1,0.0,False),(0.333,7,0.0,False)],
-        3:[(0.333,5,0.0,False),(0.333,1,0.0,False),(0.333,7,0.0,False)]
-    },
-    6:{
-        0:[(0.333,3,0.0,False),(0.333,6,0.0,False),(0.333,7,0.0,False)],
-        1:[(0.666,6,0.0,False),(0.333,7,0.0,False)],
-        2:[(0.666,6,0.0,False),(0.333,3,0.0,False)],
-        3:[(0.333,7,0.0,False),(0.333,3,0.0,False),(0.333,6,0.0,False)]
-    },
-    7:{
-        0:[(0.333,4,0.0,False),(0.333,6,0.0,False),(0.333,8,1.0,True)],
-        1:[(0.333,7,0.0,False),(0.333,6,0.0,False),(0.333,8,1.0,True)],
-        2:[(0.333,6,0.0,False),(0.333,4,0.0,False),(0.333,7,0.0,False)],
-        3:[(0.333,8,1.0,True),(0.333,4,0.0,False),(0.333,7,0.0,False)]
-    },
-    8:{
-        0:[(0.333,5,0.0,False),(0.333,7,0.0,False),(0.333,8,1.0,True)],
-        1:[(0.666,8,1.0,True),(0.333,7,0.0,False)],
-        2:[(0.333,7,0.0,False),(0.333,5,0.0,False),(0.333,8,1.0,True)],
-        3:[(0.666,8,1.0,True),(0.333,5,0.0,False)]
+    "Knocked out": {
+        0 : [(0.8, "Knocked out", 0, False),(0.2, "Semi's", 0, False)],
+        1 : [(0.7, "Semi's`", 0, False),(0.3, "Knocked out", 0.0, False)]
     }
 }
 ```
 
 ## OUTPUT:
-![output](https://github.com/saieswar1607/mdp-representation/assets/93427011/2f5cebbb-88b9-462f-a161-4f768aadbb7b)
+![image](https://github.com/Naveen22009215/mdp-representation/assets/119401470/4d6cc091-559e-4cbd-8210-f217ed484f85)
 
 
 ## RESULT:
-Thus a real world problem is represented as Markov Decision Problem in the following ways successfully:
+The result of solving this MDP would be an optimal policy that tells the person which action to take in each state to maximize their productivity while coding.
 
-1. Graphical Representation
-2. Python Representation
